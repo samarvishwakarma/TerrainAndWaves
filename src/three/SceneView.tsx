@@ -5,7 +5,7 @@ import { skyVert, skyFrag } from '../shaders/sky';
 import { terrainVert, terrainFrag } from '../shaders/terrain';
 import { waterVert, waterFrag } from '../shaders/water';
 import { particlesVert, particlesFrag } from '../shaders/particles';
-import { OrbitControls } from "three/addons/controls/OrbitControls";
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 type Params = {
   terrainSize: number;
@@ -40,7 +40,6 @@ export default function SceneView() {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
     const { clientWidth, clientHeight } = containerRef.current;
     renderer.setSize(clientWidth, clientHeight);
-    renderer.colorSpace = THREE.sRGBEncoding;
     containerRef.current.appendChild(renderer.domElement);
     renderer.shadowMap.enabled = true;
 
@@ -204,7 +203,7 @@ export default function SceneView() {
     renderer.domElement.addEventListener('click', onClick);
 
     // Water + reflection
-    const renderTarget = new THREE.WebGLRenderTarget(1024, 1024, { format: THREE.RGBAFormat, colorSpace: THREE.sRGBEncoding });
+    const renderTarget = new THREE.WebGLRenderTarget(1024, 1024, { format: THREE.RGBAFormat });
     const mirrorCamera = new THREE.PerspectiveCamera(60, 1, 0.1, 1000);
     const waterUniforms: Record<string, THREE.IUniform> = {
       uTime: { value: 0 },
