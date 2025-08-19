@@ -5,7 +5,7 @@ import { skyVert, skyFrag } from '../shaders/sky';
 import { terrainVert, terrainFrag } from '../shaders/terrain';
 import { waterVert, waterFrag } from '../shaders/water';
 import { particlesVert, particlesFrag } from '../shaders/particles';
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import { OrbitControls } from "three/addons/controls/OrbitControls";
 
 type Params = {
   terrainSize: number;
